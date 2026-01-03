@@ -18,7 +18,7 @@ const electionData = {
         manifesto: [
             { 
                 title: "১. সাইকেল পার্কিং ও নিরাপত্তা নিশ্চিতকরণ", 
-                desc: "• প্রতিটি একাডেমিক ভবন এবং আবাসিক হলে পরিকল্পিত ও সুশৃঙ্খল সাইকেল পার্কিং জোন কার্যকরভাবে নিশ্চিত করা হবে।<br>• ক্যাম্পাস ও প্রবেশপথে সিসিটিভি ও পর্যাপ্ত আলোর ব্যবস্থা নিশ্চিত করা।<br>• সাস্ট কেন্দ্রীয় ছাত্র সংসদ (CSU) নির্বাচনকে একাডেমিক ক্যালেন্ডারে অন্তর্ভুক্ত করে নিয়মিত নির্বাচনের ব্যবস্থা করা।" 
+                desc: "• প্রতিটি একাডেমিক ভবন এবং আবাসিক হলে পরিকল্পিত ও সুশৃঙ্খল সাইকেল পার্কিং জোন কার্যকরভাবে নিশ্চিত করা হবে।<br>• ক্যাম্পাস ও প্রবেশপথে সিসিটিভি ও পর্যাপ্ত আলোর ব্যবস্থা নিশ্চিত করা।<br>• সাস্ট কেন্দ্রীয় ছাত্র সংসদ (SUCSU) নির্বাচনকে একাডেমিক ক্যালেন্ডারে অন্তর্ভুক্ত করে নিয়মিত নির্বাচনের ব্যবস্থা করা।" 
             },
             { 
                 title: "২. জ্ঞানচর্চাভিত্তিক আন্তঃবিভাগীয় প্রতিযোগিতা চালু", 
@@ -62,7 +62,7 @@ const electionData = {
         manifesto: [
             { 
                 title: "1. Cycle Parking & Security", 
-                desc: "• Ensuring planned and disciplined cycle parking zones in every academic building and residential hall.<br>• Ensuring CCTV surveillance and adequate lighting on campus and at entry points.<br>• Incorporating CSU elections into the academic calendar to ensure regular elections." 
+                desc: "• Ensuring planned and disciplined cycle parking zones in every academic building and residential hall.<br>• Ensuring CCTV surveillance and adequate lighting on campus and at entry points.<br>• Incorporating SUCSU elections into the academic calendar to ensure regular elections." 
             },
             { 
                 title: "2. Intellectual Competitions", 
@@ -94,4 +94,5 @@ const electionData = {
             }
         ]
     }
+
 };
