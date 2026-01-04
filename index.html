@@ -4,22 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ehsanul Haque Milon | Ballot 16</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts Integration: SolaimanLipi-->
+
+    <!-- SolaimanLipi (FORCED) -->
     <link href="https://cdn.jsdelivr.net/gh/atitech/bangla-fonts/solaimanlipi.css" rel="stylesheet">
-    
+
     <style>
-        body { 
-            font-family: 'SolaimanLipi', sans-serif; 
-            scroll-behavior: smooth; 
-        }
-        
-        h1, h2, h3, .ballot-seal-overlay, .big-ballot-num, #ctaBtn {
-            font-family: 'SolaimanLipi', sans-serif;
+        * {
+            font-family: 'SolaimanLipi' !important;
         }
 
-        /* --- সিল স্টাইল (মোবাইল ও ডেস্কটপ রেসপন্সিভ) --- */
+        html, body {
+            scroll-behavior: smooth;
+            background: #fafafa;
+        }
+
+        #slogan { white-space: pre-line; }
+
+        /* Ballot Seal */
         .ballot-seal-overlay {
             position: absolute;
             top: -25px;
@@ -33,167 +37,183 @@
             justify-content: center;
             align-items: center;
             color: #d90429;
-            background: rgba(255, 255, 255, 0.98); 
-            transform: rotate(12deg); 
-            box-shadow: 0 15px 35px rgba(217, 4, 41, 0.35), 0 0 0 8px white;
+            background: rgba(255,255,255,0.98);
+            transform: rotate(12deg);
+            box-shadow: 0 15px 35px rgba(217,4,41,.35), 0 0 0 8px #fff;
             z-index: 50;
         }
 
         .big-ballot-num {
             font-size: 5.5rem;
-            line-height: 1;
             font-weight: 900;
+            line-height: 1;
         }
 
-        @media (max-width: 640px) {
-            .ballot-seal-overlay {
-                width: 110px;
-                height: 110px;
-                top: -10px;
-                right: -10px;
-                border-width: 4px;
-                box-shadow: 0 8px 20px rgba(217, 4, 41, 0.3), 0 0 0 4px white;
+        @media (max-width:640px){
+            .ballot-seal-overlay{
+                width:110px;
+                height:110px;
+                top:-10px;
+                right:-10px;
+                border-width:4px;
             }
-            .big-ballot-num {
-                font-size: 3.5rem;
-            }
+            .big-ballot-num{ font-size:3.5rem; }
         }
 
-        .manifesto-card {
-            background: white; border: 1px solid #f1f5f9; border-radius: 2rem;
-            padding: 2.5rem; transition: all 0.3s ease;
+        .manifesto-card{
+            background:#fff;
+            border:1px solid #f1f5f9;
+            border-radius:2rem;
+            padding:2.5rem;
+            transition:.3s;
         }
-        .manifesto-card:hover { border-color: #10b981; transform: translateY(-5px); }
+        .manifesto-card:hover{
+            transform:translateY(-6px);
+            border-color:#10b981;
+        }
 
-        .tree-card {
-            background: #064e3b; color: white; border-radius: 3rem; padding: 4rem 2rem;
-            text-align: center; margin-top: 4rem;
+        .tree-card{
+            background:#064e3b;
+            color:#fff;
+            border-radius:3rem;
+            padding:4rem 2rem;
+            text-align:center;
         }
-        #slogan { white-space: pre-line; }
     </style>
 </head>
-<body class="bg-[#fafafa] overflow-x-hidden">
 
-    <!-- Language Selector Overlay -->
-    <div id="langOverlay" class="fixed inset-0 z-[100] bg-[#022c22] flex items-center justify-center p-6 text-center">
-        <div class="bg-white p-10 rounded-[3rem] shadow-2xl max-w-sm w-full border-t-8 border-[#d90429]">
-            <h2 class="text-2xl font-bold text-emerald-950 mb-8 uppercase tracking-tight">Select Language <br> <span class="text-xl font-normal text-slate-500 font-['SolaimanLipi']">ভাষা নির্বাচন করুন</span></h2>
-            <div class="flex flex-col gap-4">
-                <button onclick="initPage('bn')" class="bg-[#d90429] text-white py-4 rounded-2xl font-bold text-lg shadow-lg font-['SolaimanLipi']">বাংলা</button>
-                <button onclick="initPage('en')" class="border-2 border-[#d90429] text-[#d90429] py-4 rounded-2xl font-bold text-lg hover:bg-red-50 transition">ENGLISH</button>
+<body class="overflow-x-hidden">
+
+<!-- Language Selector -->
+<div id="langOverlay" class="fixed inset-0 z-[100] bg-[#022c22] flex items-center justify-center p-6">
+    <div class="bg-white p-10 rounded-[3rem] shadow-2xl max-w-sm w-full border-t-8 border-[#d90429] text-center">
+        <h2 class="text-2xl font-bold mb-8">
+            Select Language<br>
+            <span class="text-xl font-normal text-slate-500">ভাষা নির্বাচন করুন</span>
+        </h2>
+        <div class="flex flex-col gap-4">
+            <button onclick="initPage('bn')" class="bg-[#d90429] text-white py-4 rounded-2xl font-bold">বাংলা</button>
+            <button onclick="initPage('en')" class="border-2 border-[#d90429] text-[#d90429] py-4 rounded-2xl font-bold">ENGLISH</button>
+        </div>
+    </div>
+</div>
+
+<div id="mainContent" class="hidden">
+
+<!-- Navbar -->
+<nav class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b p-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <img id="sustLogo" class="h-10">
+        <button onclick="location.reload()" class="bg-slate-100 px-4 py-1.5 rounded-xl text-xs font-bold">BN / EN</button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative overflow-hidden py-16 md:py-28 px-6">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+        <img id="heroBgImg"
+             class="w-full h-full object-cover opacity-[0.85]"
+             style="filter: saturate(110%) contrast(105%)">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/70 via-white/60 to-emerald-50/70 backdrop-blur-[2px]"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-14">
+        <div class="flex-1 text-center md:text-left order-2 md:order-1">
+            <span id="postName" class="bg-emerald-100 px-5 py-1.5 rounded-full text-xs font-bold uppercase"></span>
+            <h1 id="candidateName" class="text-5xl md:text-7xl font-black my-6 leading-tight text-[#022c22]"></h1>
+            <p id="slogan" class="text-xl md:text-2xl font-semibold italic mb-10 border-l-4 border-emerald-500 pl-6 bg-white/70 p-4 rounded-xl"></p>
+            <a id="ctaBtn" href="#manifesto"
+               class="inline-block bg-[#059669] text-white px-10 py-4 rounded-2xl font-bold shadow-xl hover:scale-105 transition">
+            </a>
+        </div>
+
+        <div class="flex-1 flex justify-center order-1 md:order-2">
+            <div class="relative">
+                <img id="candidateImg"
+                     class="w-72 h-72 md:w-[500px] md:h-[500px] object-cover rounded-[4rem] border-[10px] border-white shadow-2xl">
+                <div class="ballot-seal-overlay">
+                    <span class="ballotLabel text-[10px] font-bold tracking-widest"></span>
+                    <span id="ballotNumImg" class="big-ballot-num"></span>
+                </div>
             </div>
         </div>
     </div>
+</section>
 
-    <div id="mainContent" class="hidden">
-        <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 p-4">
-            <div class="max-w-6xl mx-auto flex justify-between items-center">
-                <img id="sustLogo" class="h-10 w-auto">
-                <button onclick="location.reload()" class="bg-slate-100 text-slate-600 px-4 py-1.5 rounded-xl text-xs font-bold uppercase tracking-widest">BN / EN</button>
-            </div>
-        </nav>
+<!-- Manifesto -->
+<section id="manifesto" class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+        <h2 id="manifestoTitle" class="text-4xl md:text-5xl font-black text-center mb-20"></h2>
+        <div id="manifestoGrid" class="grid gap-10"></div>
 
-        <!-- Hero Section -->
-        <section class="relative overflow-hidden py-12 md:py-24 px-6">
-            <!-- Background Image Layer with Overlay -->
-            <div class="absolute inset-0 z-0">
-                <img id="heroBgImg" class="w-full h-full object-cover" style="object-position: center;">
-                <div class="absolute inset-0 bg-gradient-to-br from-emerald-50/85 via-white/80 to-amber-50/85"></div>
-            </div>
-
-            <!-- Content Layer -->
-            <div class="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20">
-                <div class="flex-1 text-center md:text-left order-2 md:order-1">
-                    <span id="postName" class="bg-emerald-100 text-emerald-800 px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm"></span>
-                    <h1 id="candidateName" class="text-5xl md:text-7xl font-black text-[#022c22] my-6 md:my-8 leading-tight tracking-tighter drop-shadow-sm"></h1>
-                    <p id="slogan" class="text-xl md:text-2xl text-slate-800 font-semibold italic mb-8 md:mb-12 border-l-4 border-emerald-500 pl-6 leading-relaxed bg-white/60 backdrop-blur-sm py-4 rounded-r-xl shadow-sm"></p>
-                    <a href="#manifesto" id="ctaBtn" class="inline-block bg-[#059669] text-white px-10 py-4 rounded-2xl font-bold shadow-2xl hover:bg-[#047857] hover:scale-105 transition-all duration-300 uppercase tracking-wide"></a>
-                </div>
-                
-                <div class="flex-1 flex justify-center order-1 md:order-2">
-                    <div class="relative">
-                        <img id="candidateImg" class="w-72 h-72 md:w-[500px] md:h-[500px] object-cover rounded-[3.5rem] md:rounded-[4rem] shadow-2xl border-[8px] md:border-[12px] border-white relative z-10 ring-4 ring-emerald-100">
-                        <div class="ballot-seal-overlay">
-                            <span class="ballotLabel text-[10px] font-bold uppercase tracking-[0.2em]"></span>
-                            <span id="ballotNumImg" class="big-ballot-num"></span>
-                        </div>
-                        <!-- Decorative Elements -->
-                        <div class="absolute -z-10 top-10 -left-10 w-40 h-40 bg-emerald-200/30 rounded-full blur-3xl"></div>
-                        <div class="absolute -z-10 -bottom-10 -right-10 w-60 h-60 bg-amber-200/30 rounded-full blur-3xl"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Manifesto -->
-        <section id="manifesto" class="py-16 md:py-24 px-6 bg-white">
-            <div class="max-w-6xl mx-auto">
-                <h2 id="manifestoTitle" class="text-3xl md:text-5xl font-black text-center mb-16 md:mb-24 text-[#022c22] tracking-tight uppercase"></h2>
-                <div id="manifestoGrid" class="grid grid-cols-1 gap-8 md:gap-12"></div>
-
-                <div class="tree-card shadow-2xl mt-16 md:mt-24">
-                    <p id="specialText" class="text-xl md:text-3xl font-bold leading-relaxed max-w-4xl mx-auto"></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer id="footerBg" class="relative h-[550px] md:h-[750px] w-full bg-cover bg-center flex items-end justify-center pb-24 md:pb-32">
-            <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
-            <div class="relative bg-white/95 p-10 md:p-14 rounded-[3rem] md:rounded-[4rem] shadow-2xl text-center max-w-lg mx-6 border border-white">
-                <h3 id="footerMsg" class="text-2xl md:text-3xl font-black text-[#022c22] mb-10 leading-tight"></h3>
-                <div class="inline-flex flex-col items-center justify-center w-28 h-28 md:w-40 md:h-40 border-4 md:border-[6px] border-double border-[#d90429] rounded-full text-[#d90429] bg-white transform rotate-[-10deg] shadow-xl">
-                    <span class="ballotLabel text-[8px] md:text-[10px] font-bold uppercase tracking-widest"></span>
-                    <span id="ballotNumFooter" class="text-5xl md:text-7xl font-black"></span>
-                </div>
-            </div>
-        </footer>
-
-        <!-- Developer Credit -->
-        <div class="bg-[#022c22] text-white py-16 md:py-24 text-center px-6">
-            <p class="text-emerald-400 text-[10px] uppercase tracking-[0.5em] mb-4 font-bold">Strategic Tech Partner</p>
-            <a id="fbLink" target="_blank" class="text-2xl md:text-4xl font-black hover:text-emerald-400 transition tracking-tighter">BRIDGE BYTE TECH</a>
-            <div class="h-1 w-16 bg-emerald-800 mx-auto my-8 rounded-full"></div>
-            <p class="text-[10px] opacity-40 uppercase tracking-[0.2em]">© 2026 MD. EHSANUL HAQUE MILON</p>
+        <div class="tree-card mt-24 shadow-2xl">
+            <p id="specialText" class="text-xl md:text-3xl font-bold max-w-4xl mx-auto"></p>
         </div>
     </div>
+</section>
 
-    <script src="data.js"></script>
-    <script>
-        function initPage(lang) {
-            document.getElementById('langOverlay').classList.add('hidden');
-            document.getElementById('mainContent').classList.remove('hidden');
-            const content = electionData[lang];
-            const isBn = lang === 'bn';
+<!-- Footer -->
+<footer id="footerBg" class="relative h-[650px] bg-cover bg-center flex items-end justify-center pb-28">
+    <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent"></div>
+    <div class="relative bg-white/95 p-14 rounded-[4rem] shadow-2xl text-center">
+        <h3 id="footerMsg" class="text-3xl font-black mb-10"></h3>
+        <div class="inline-flex flex-col items-center w-40 h-40 border-[6px] border-double border-[#d90429] rounded-full text-[#d90429] rotate-[-10deg]">
+            <span class="ballotLabel text-[10px] font-bold tracking-widest"></span>
+            <span id="ballotNumFooter" class="text-7xl font-black"></span>
+        </div>
+    </div>
+</footer>
 
-            document.getElementById('sustLogo').src = electionData.sustLogo;
-            document.getElementById('candidateImg').src = electionData.candidateImg;
-            document.getElementById('heroBgImg').src = electionData.headerBg;
-            document.getElementById('footerBg').style.backgroundImage = `url('${electionData.footerBg}')`;
-            document.getElementById('fbLink').href = electionData.fbPageLink;
+<!-- Credit -->
+<div class="bg-[#022c22] text-white py-20 text-center">
+    <p class="text-emerald-400 text-[10px] tracking-[0.5em] mb-4 font-bold">Strategic Tech Partner</p>
+    <a id="fbLink" target="_blank" class="text-3xl font-black hover:text-emerald-400">BRIDGE BYTE TECH</a>
+    <p class="text-[10px] opacity-40 mt-8">© 2026 MD. EHSANUL HAQUE MILON</p>
+</div>
 
-            const bNum = isBn ? electionData.ballotNumber : electionData.ballotNumberEn;
-            document.getElementById('ballotNumImg').innerText = bNum;
-            document.getElementById('ballotNumFooter').innerText = bNum;
-            document.querySelectorAll('.ballotLabel').forEach(el => el.innerText = isBn ? "ব্যালট নং" : "BALLOT NO");
+</div>
 
-            document.getElementById('postName').innerText = content.postName;
-            document.getElementById('candidateName').innerText = content.candidateName;
-            document.getElementById('slogan').innerText = content.slogan;
-            document.getElementById('manifestoTitle').innerText = content.manifestoTitle;
-            document.getElementById('ctaBtn').innerText = content.ctaText;
-            document.getElementById('specialText').innerText = content.specialText;
-            document.getElementById('footerMsg').innerText = content.footerMsg;
+<script src="data.js"></script>
+<script>
+function initPage(lang){
+    langOverlay.classList.add('hidden');
+    mainContent.classList.remove('hidden');
+    const c = electionData[lang];
+    const bn = lang === 'bn';
 
-            const grid = document.getElementById('manifestoGrid');
-            grid.innerHTML = "";
-            content.manifesto.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "manifesto-card";
-                card.innerHTML = `<h3 class="text-xl md:text-2xl font-bold text-[#022c22] mb-6 md:mb-8 border-b border-slate-100 pb-4 md:pb-6 flex items-center"><span class="w-2 h-6 md:h-8 bg-emerald-500 rounded-full mr-4"></span>${item.title}</h3><div class="leading-[1.8] text-base md:text-lg space-y-4 font-medium">${item.desc}</div>`;
-                grid.appendChild(card);
-            });
-        }
-    </script>
+    sustLogo.src = electionData.sustLogo;
+    candidateImg.src = electionData.candidateImg;
+    heroBgImg.src = electionData.headerBg;
+    footerBg.style.backgroundImage = `url('${electionData.footerBg}')`;
+    fbLink.href = electionData.fbPageLink;
+
+    const num = bn ? electionData.ballotNumber : electionData.ballotNumberEn;
+    ballotNumImg.innerText = num;
+    ballotNumFooter.innerText = num;
+    document.querySelectorAll('.ballotLabel').forEach(e=>e.innerText = bn?'ব্যালট নং':'BALLOT NO');
+
+    postName.innerText = c.postName;
+    candidateName.innerText = c.candidateName;
+    slogan.innerText = c.slogan;
+    manifestoTitle.innerText = c.manifestoTitle;
+    ctaBtn.innerText = c.ctaText;
+    specialText.innerText = c.specialText;
+    footerMsg.innerText = c.footerMsg;
+
+    manifestoGrid.innerHTML='';
+    c.manifesto.forEach(i=>{
+        manifestoGrid.innerHTML += `
+        <div class="manifesto-card">
+            <h3 class="text-2xl font-bold mb-6">${i.title}</h3>
+            <div class="leading-[1.9]">${i.desc}</div>
+        </div>`;
+    });
+}
+</script>
+
 </body>
 </html>
