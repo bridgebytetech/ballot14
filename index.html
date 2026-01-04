@@ -40,7 +40,7 @@
         }
 
         .big-ballot-num {
-            font-size: 5.5rem; /* ইংরেজি ফন্টে নম্বর আরও বোল্ড দেখাবে */
+            font-size: 5.5rem;
             line-height: 1;
             font-weight: 900;
         }
@@ -98,7 +98,7 @@
             <!-- Background Image Layer with Overlay -->
             <div class="absolute inset-0 z-0">
                 <img id="heroBgImg" class="w-full h-full object-cover" style="object-position: center;">
-                <div class="absolute inset-0 bg-gradient-to-br from-emerald-50/95 via-white/90 to-amber-50/95"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-emerald-50/85 via-white/80 to-amber-50/85"></div>
             </div>
 
             <!-- Content Layer -->
@@ -168,7 +168,7 @@
 
             document.getElementById('sustLogo').src = electionData.sustLogo;
             document.getElementById('candidateImg').src = electionData.candidateImg;
-            document.getElementById('heroBgImg').src = electionData.footerBg; // Hero background
+            document.getElementById('heroBgImg').src = electionData.headerBg;
             document.getElementById('footerBg').style.backgroundImage = `url('${electionData.footerBg}')`;
             document.getElementById('fbLink').href = electionData.fbPageLink;
 
